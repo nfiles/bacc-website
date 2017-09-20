@@ -1,0 +1,22 @@
+{
+  "name": "bacc-website",
+  "version": "1.0.0",
+  "description": "tools and scripts for the bacc website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{}"
+  },
+  "author": "Nathan Files",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^4.0.7",
+    "rollup": "^0.50.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "sharp": "^0.18.4",
+    "typescript": "^2.5.2"
+  }
+}
