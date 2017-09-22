@@ -14,9 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "command-line-args": "^4.0.7",
-    "rollup": "^0.50.0",
-    "rollup-plugin-typescript": "^0.8.1",
-    "sharp": "^0.18.4",
-    "typescript": "^2.5.2"
+    "sharp": "^0.18.4"
   }
 }
