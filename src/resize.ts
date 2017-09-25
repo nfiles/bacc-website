@@ -13,7 +13,9 @@ export const resizeImageFile = (
 
     // remove the leading '.' from the extension
     let format = ext.slice(1).toLowerCase();
-    if (format === 'jpg') { format = 'jpeg'; }
+    if (format === 'jpg') {
+        format = 'jpeg';
+    }
 
     if (!sharp.format[format]) {
         return Promise.reject(`Invalid extension: '${format}'`);
