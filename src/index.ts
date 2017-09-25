@@ -31,8 +31,10 @@ const {
 
 if (stdio) {
     const chunks = [];
-    process.stdin.on('data', (data) => {
-        if (!data) { return; }
+    process.stdin.on('data', data => {
+        if (!data) {
+            return;
+        }
 
         if (Buffer.isBuffer(data)) {
             chunks.push(data);
@@ -61,7 +63,8 @@ if (stdio) {
         process.exit(ExitCode.InIsntDirectory);
     }
 
-    const files = fs.readdirSync(IN_DIR)
+    const files = fs
+        .readdirSync(IN_DIR)
         .map(file => path.join(IN_DIR, file))
         .filter(file => fs.statSync(file).isFile())
         .map(file => {
@@ -71,6 +74,5 @@ if (stdio) {
             return resizeImageFile(MAX_WIDTH, MAX_HEIGHT, OUT_DIR, file);
         });
 
-    Promise.all(files)
-        .catch(err => console.error(err));
+    Promise.all(files).catch(err => console.error(err));
 }
