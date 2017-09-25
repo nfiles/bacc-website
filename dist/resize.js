@@ -1,24 +1,19 @@
-import * as path from 'path';
-import * as sharp from 'sharp';
-
-export const resizeImageFile = (
-    maxWidth: number,
-    maxHeight: number,
-    out: string,
-    file: string
-): Promise<sharp.OutputInfo> => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const path = require("path");
+const sharp = require("sharp");
+exports.resizeImageFile = (maxWidth, maxHeight, out, file) => {
     const ext = path.extname(file);
     const name = path.basename(file, ext);
     const outFile = path.join(out, name + ext);
-
     // remove the leading '.' from the extension
     let format = ext.slice(1).toLowerCase();
-    if (format === 'jpg') { format = 'jpeg'; }
-
+    if (format === 'jpg') {
+        format = 'jpeg';
+    }
     if (!sharp.format[format]) {
         return Promise.reject(`Invalid extension: '${format}'`);
     }
-
     return sharp(file)
         .resize(maxWidth, maxHeight)
         .max()
@@ -26,12 +21,7 @@ export const resizeImageFile = (
         .toFormat(format)
         .toFile(outFile);
 };
-
-export const resizeImageBuffer = (
-    maxWidth: number,
-    maxHeight: number,
-    buffer: Buffer
-): Promise<Buffer> => {
+exports.resizeImageBuffer = (maxWidth, maxHeight, buffer) => {
     if (!Buffer.isBuffer(buffer)) {
         return Promise.reject('Not a Buffer');
     }
@@ -42,3 +32,4 @@ export const resizeImageBuffer = (
         .toFormat(sharp.format.jpeg)
         .toBuffer();
 };
+//# sourceMappingURL=resize.js.map
