@@ -58,3 +58,4 @@ typings/
 .env
 
 scratch
+tools/*/dist
