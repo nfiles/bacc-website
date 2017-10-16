@@ -5,7 +5,7 @@ CLI tool for scaling down images based on a set of maximum dimensions. Created b
 ## Installation
 
 ```sh
-npm install -g @bacc/tools
+npm install -g @bacc/resize-img
 ```
 
 ## Options
